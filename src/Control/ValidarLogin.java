@@ -11,7 +11,7 @@ import Frontera.FramePrincipal;
 
 /**
  *
- * @author usuario
+ * @author SantiagoJGG
  */
 public class ValidarLogin {
 
@@ -35,7 +35,7 @@ public class ValidarLogin {
             
             if (u.getNombre().equals(usuario.getNombre())
                     && u.getPassword().equals(usuario.getPassword())) {
-                return ("Bienvenido");
+                return ("Bienvenido "+usuario.getNombre());
             }
         }
         return ("Datos Incorrectos");
