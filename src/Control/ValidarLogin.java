@@ -35,7 +35,7 @@ public class ValidarLogin {
             
             if (u.getNombre().equals(usuario.getNombre())
                     && u.getPassword().equals(usuario.getPassword())) {
-                return ("Bienvenido "+usuario.getNombre());
+                return ("Bienvenido");
             }
         }
         return ("Datos Incorrectos");

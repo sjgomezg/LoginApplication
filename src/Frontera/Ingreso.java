@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
 import Control.ValidarLogin;
@@ -10,7 +5,7 @@ import Entidad.Usuario;
 
 /**
  *
- * @author usuario
+ * @author SantiagoJGG
  */
 public class Ingreso extends javax.swing.JPanel {
 
