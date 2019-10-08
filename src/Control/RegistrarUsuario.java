@@ -27,13 +27,19 @@ public class RegistrarUsuario {
         if(!verificarLongitudNombre(usuario.getNombre()))
             return("Longitud de nombre incorrecta");
         
+        ArrayList <Usuario> usuarios = sistema.getUsuarios();
+        for(Usuario u: sistema.getUsuarios()){
+            if(usuario.getNombre().equals(u.getNombre()))
+                return("El usuario ya existe");
+        }
+                
         if(!verificarPassword(usuario.getPassword()))
             return("Longitud de contraseña incorrecta");
         
         if(!usuario.getPassword().equals(rPassword))
             return("Las contraseñas no coinciden");
         
-        ArrayList <Usuario> usuarios = sistema.getUsuarios();
+
         usuarios.add(usuario);
         sistema.setUsuarios(usuarios);
         return("Usuario " + usuario.getNombre() +" Registrado con exito");
