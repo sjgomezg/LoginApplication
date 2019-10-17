@@ -29,8 +29,9 @@ public class ValidarLogin {
             return ("Longitud de contraseña incorrecta");
         } 
         
-        if(dao.leer(usuario)!=null)
+        if(dao.leer(usuario)!= null){
             return("Bienvenido");
+        }
         return ("Datos Incorrectos");
     }
     

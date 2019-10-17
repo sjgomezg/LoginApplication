@@ -80,11 +80,11 @@ public class TestRegistro {
         u.setNombre("R");
         u.setPassword("123456");
         String vPassword = "123456";
-        assertEquals(registrarUsuario.registrar(u,vPassword), LONG_NOMBRE_INCORRECTA);
+        assertEquals(LONG_NOMBRE_INCORRECTA, registrarUsuario.registrar(u, vPassword));
                        
         u.setNombre("Roberto");
         u.setPassword("123456");
-        assertEquals(registrarUsuario.registrar(u, vPassword), LONG_NOMBRE_INCORRECTA);
+        assertEquals(LONG_NOMBRE_INCORRECTA, registrarUsuario.registrar(u, vPassword));
     }
     
     @Test
@@ -93,12 +93,12 @@ public class TestRegistro {
         u.setNombre("juan");
         u.setPassword("123456");
         String vPassword = "123456";
-        assertEquals(registrarUsuario.registrar(u,vPassword), EL_USUARIO_YA_EXISTE);
+        assertEquals(EL_USUARIO_YA_EXISTE,registrarUsuario.registrar(u, vPassword));
                        
         u.setNombre("maria");
         u.setPassword("123456");
         
-        assertEquals(registrarUsuario.registrar(u, vPassword), EL_USUARIO_YA_EXISTE);
+        assertEquals(EL_USUARIO_YA_EXISTE,registrarUsuario.registrar(u, vPassword));
         
     }
     
@@ -108,11 +108,11 @@ public class TestRegistro {
         u.setNombre("Pepe");
         u.setPassword("12");
         String vPassword = "123456";
-        assertEquals(registrarUsuario.registrar(u, vPassword), LONG_PASSWORD_INCORRECTA);
+        assertEquals(LONG_PASSWORD_INCORRECTA,registrarUsuario.registrar(u, vPassword));
         
         u.setNombre("Pepe");
         u.setPassword("123456");
-        assertEquals(registrarUsuario.registrar(u,vPassword), LONG_PASSWORD_INCORRECTA);
+        assertEquals(LONG_PASSWORD_INCORRECTA,registrarUsuario.registrar(u, vPassword));
     }
     
     @Test
@@ -121,12 +121,12 @@ public class TestRegistro {
         u.setNombre("Pepe");
         u.setPassword("12345");
         String vPassword = "12346";
-        assertEquals(registrarUsuario.registrar(u, vPassword), LAS_CONTRASENIAS_NO_COINCIDEN);
+        assertEquals(LAS_CONTRASENIAS_NO_COINCIDEN, registrarUsuario.registrar(u, vPassword));
         
         u.setNombre("Pepe");
         u.setPassword("12345");
         vPassword = "12347";
-        assertEquals(registrarUsuario.registrar(u,vPassword), LAS_CONTRASENIAS_NO_COINCIDEN);
+        assertEquals(LAS_CONTRASENIAS_NO_COINCIDEN, registrarUsuario.registrar(u, vPassword));
         
     }
     @Test
@@ -135,13 +135,13 @@ public class TestRegistro {
         u.setNombre("lucia");
         u.setPassword("54321");
         String vPassword = "54321";
-        assertEquals(registrarUsuario.registrar(u,vPassword), USUARIO_REGISTRADO);
+        assertEquals(USUARIO_REGISTRADO, registrarUsuario.registrar(u, vPassword));
         
         Usuario v = new Usuario();
         v.setNombre("john");
         v.setPassword("AB123");
         vPassword = "AB123";
-        assertEquals(registrarUsuario.registrar(v,vPassword), USUARIO_REGISTRADO); 
+        assertEquals(USUARIO_REGISTRADO, registrarUsuario.registrar(v, vPassword)); 
     }
     // public void hello() {}
 }

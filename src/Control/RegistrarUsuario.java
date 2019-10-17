@@ -5,6 +5,7 @@
  */
 package Control;
 
+import DAO.UsuarioDAO;
 import Entidad.Sistema;
 import Entidad.Usuario;
 import Frontera.FramePrincipal;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public class RegistrarUsuario {
     
-    private Sistema sistema = FramePrincipal.sistema;
+    private UsuarioDAO dao = new UsuarioDAO();
     
     public RegistrarUsuario(){
         
@@ -27,12 +28,10 @@ public class RegistrarUsuario {
         if(!verificarLongitudNombre(usuario.getNombre()))
             return("Longitud de nombre incorrecta");
         
-        ArrayList <Usuario> usuarios = sistema.getUsuarios();
-        for(Usuario u: sistema.getUsuarios()){
-            if(usuario.getNombre().equals(u.getNombre()))
-                return("El usuario ya existe");
+        if(dao.buscarNombre(usuario).getNombre()!= null){
+            return("El usuario ya existe");
         }
-                
+        
         if(!verificarPassword(usuario.getPassword()))
             return("Longitud de contraseña incorrecta");
         
@@ -40,8 +39,7 @@ public class RegistrarUsuario {
             return("Las contraseñas no coinciden");
         
 
-        usuarios.add(usuario);
-        sistema.setUsuarios(usuarios);
+        dao.crear(usuario);
         return("Usuario Registrado con exito");
     }
     

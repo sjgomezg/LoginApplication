@@ -79,11 +79,11 @@ public class TestLogin {
         Usuario u = new Usuario();
         u.setNombre("R");
         u.setPassword("123456");
-        assertEquals(validarLogin.verificarLogin(u), LONG_NOMBRE_INCORRECTA);
+        assertEquals(LONG_NOMBRE_INCORRECTA, validarLogin.verificarLogin(u));
         
         u.setNombre("Roberto");
         u.setPassword("123456");
-        assertEquals(validarLogin.verificarLogin(u), LONG_NOMBRE_INCORRECTA);
+        assertEquals(LONG_NOMBRE_INCORRECTA, validarLogin.verificarLogin(u));
         
     }
     @Test
@@ -91,19 +91,19 @@ public class TestLogin {
         Usuario u = new Usuario();
         u.setNombre("Pepe");
         u.setPassword("12");
-        assertEquals(validarLogin.verificarLogin(u), LONG_PASSWORD_INCORRECTA);
+        assertEquals(LONG_PASSWORD_INCORRECTA, validarLogin.verificarLogin(u));
         
         u.setNombre("Pepe");
         u.setPassword("123456");
-        assertEquals(validarLogin.verificarLogin(u), LONG_PASSWORD_INCORRECTA);
+        assertEquals(LONG_PASSWORD_INCORRECTA, validarLogin.verificarLogin(u));
         
     }
     @Test
     public void testNombre(){
         Usuario u = new Usuario();
-        u.setNombre("Henry");
-        u.setPassword("12345");
-        assertEquals(validarLogin.verificarLogin(u), DATOS_INCORRECTOS);
+        u.setNombre("Hernan");
+        u.setPassword("12a45");
+        assertEquals(DATOS_INCORRECTOS, validarLogin.verificarLogin(u));
         
     }
     @Test
@@ -111,7 +111,7 @@ public class TestLogin {
         Usuario u = new Usuario();
         u.setNombre("maria");
         u.setPassword("1234");
-        assertEquals(validarLogin.verificarLogin(u), DATOS_INCORRECTOS);
+        assertEquals(DATOS_INCORRECTOS, validarLogin.verificarLogin(u));
         
     }
     @Test
@@ -119,7 +119,7 @@ public class TestLogin {
         Usuario u = new Usuario();
         u.setNombre("Henry");
         u.setPassword("A234");
-        assertEquals(validarLogin.verificarLogin(u), DATOS_INCORRECTOS);
+        assertEquals(DATOS_INCORRECTOS, validarLogin.verificarLogin(u));
         
     }
     
@@ -129,11 +129,11 @@ public class TestLogin {
         
         u.setNombre("juan");
         u.setPassword("1234");
-        assertEquals(validarLogin.verificarLogin(u), USUARIO_AUTORIZADO);
+        assertEquals(USUARIO_AUTORIZADO, validarLogin.verificarLogin(u));
         
         u.setNombre("pedro");
         u.setPassword("123");
-        assertEquals(validarLogin.verificarLogin(u), USUARIO_AUTORIZADO);
+        assertEquals(USUARIO_AUTORIZADO, validarLogin.verificarLogin(u));
         
         u.setNombre("maria");
         u.setPassword("12345");

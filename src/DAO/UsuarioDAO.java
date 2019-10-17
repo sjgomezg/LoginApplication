@@ -71,6 +71,25 @@ public class UsuarioDAO {
         }
     }
     
+    public Usuario buscarNombre(Usuario par){
+        EntityManager em = emf.createEntityManager();
+        Usuario usuario = new Usuario();
+        Query q = em.createQuery("SELECT u FROM Usuario u "+
+                "WHERE u.nombre LIKE :nombre")
+                .setParameter("nombre", par.getNombre());
+        try{
+            usuario = (Usuario) q.getSingleResult();
+        }catch(NonUniqueResultException e){
+            usuario = (Usuario) q.getResultList().get(0);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            em.close();
+            return usuario;
+        }
+    }
+    
     public boolean actualizar(Usuario object, Usuario nuevoObjeto){
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
